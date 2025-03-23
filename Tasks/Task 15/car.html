@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Age Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="date"] {
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Age Calculator</h1>
+    <label for="carDate">Enter Car Purchase/Manufacture Date:</label>
+    <input type="date" id="carDate" name="carDate"><br><br>
+    <button onclick="calculateAge()">Calculate Age</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            let currentDate = new Date();
+            let carDate = new Date(document.getElementById("carDate").value);
+            
+            if (isNaN(carDate)) {
+                document.getElementById("result").textContent = "Please enter a valid date.";
+                return;
+            }
+
+            let ageInMilliseconds = currentDate - carDate;
+            let ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+            let years = Math.floor(ageInYears);
+            let months = Math.floor((ageInYears - years) * 12);
+
+            document.getElementById("result").textContent = `Your car is ${years} years and ${months} months old.`;
+        }
+    </script>
+</body>
+</html>

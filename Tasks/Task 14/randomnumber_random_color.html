@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Number Generator</title>
+</head>
+<body>
+
+    <h2>Task: Random within a Range</h2>
+    <p>Enter two integers (min and max) to generate a random number within the range [a, b].</p>
+
+    <input type="number" id="minRange" placeholder="Enter Min Range">
+    <input type="number" id="maxRange" placeholder="Enter Max Range">
+    <button onclick="generateRandomNumber()">Generate Random Number</button>
+
+    <p id="output"><strong>Random number is:</strong> <span id="result"></span></p>
+
+    <script>
+        function generateRandomNumber() {
+            let min = parseInt(document.getElementById("minRange").value);
+            let max = parseInt(document.getElementById("maxRange").value);
+
+            let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+            document.getElementById("output").innerHTML = `<strong>Random number is:</strong> <span id="result">${randomNum}</span>`;
+            document.getElementById("output").style.color = randomColor;
+        }
+    </script>
+
+</body>
+</html>

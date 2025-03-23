@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Number Generator</title>
+    <style>
+        body {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body id="container">
+
+    <h2>Task: Random within a Range</h2>
+    <p>Enter two integers (min and max) to generate a random number within the range [a, b].</p>
+
+    <input type="number" id="minRange" placeholder="Enter Min Range">
+    <input type="number" id="maxRange" placeholder="Enter Max Range">
+    <button onclick="generateRandomNumber()">Generate Random Number</button>
+
+    <p id="output"><strong>Random number is:</strong> <span id="result"></span></p>
+
+    <script>
+        function generateRandomNumber() {
+            let min = parseInt(document.getElementById("minRange").value);
+            let max = parseInt(document.getElementById("maxRange").value);
+    
+            if (isNaN(min) || isNaN(max) || min > max) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    
+            let outputElement = document.getElementById("output");
+            outputElement.innerHTML = `<strong>Random number is:</strong> <span id="result">${randomNum}</span>`;
+            outputElement.style.color = randomColor;
+
+            // Disappear everything after 3 seconds
+            setTimeout(() => {
+                document.getElementById("container").style.opacity = "0"; // Fade out
+                setTimeout(() => {
+                    document.getElementById("container").style.display = "none"; // Hide content
+                }, 500);
+            }, 3000);
+        }
+    </script> 
+
+</body>
+</html>

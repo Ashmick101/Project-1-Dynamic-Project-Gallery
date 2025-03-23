@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish's Project</title>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D5D5D5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page_header {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #6D7993;
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page_container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #555E7B;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px;
+            margin: 6px 0;
+            font-weight: bold;
+            background-color: #6D7993;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #3E4A61;
+            transform: scale(1.05);
+        }
+
+        /* Main Content Styling */
+        .task_content {
+            flex: 1;
+            padding: 25px;
+            background-color: #FFFFFF;
+            margin: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #task_frame {
+            width: 100%;
+            height: 75vh;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #6D7993;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #FFF;
+        }
+
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page_container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                text-align: center;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                margin: 5px;
+                padding: 10px;
+            }
+
+            .task_content {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page_container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="Tasks/Task 1/task1.html" target="task_frame">Task 01</a>
+            <a href="Tasks/task 2/htmlstyling2.html" target="task_frame">Task 02</a>
+            <a href="Tasks/task 3/hover3.html" target="task_frame">Task 03</a>
+            <a href="Tasks/task 4/Task4.html" target="task_frame">Task 04</a>
+            <a href="Tasks/task 5/task5_Cals_js (1).html" target="task_frame">Task 05</a>
+            <a href="Tasks/task 8/task8_Caps_letter.html" target="task_frame">Task 08</a>
+            <a href="Tasks/task 9/task9.2_index..html" target="task_frame">Task 09</a>
+            <a href="Tasks/task 10/task10.2_Callstackwitharray-1.html" target="task_frame">Task 10</a>
+            <a href="Tasks/task 11/Task11_do-while Star_.html" target="task_frame">Task 11</a>
+            <a href="Tasks/task 12/multipleentries.html" target="task_frame">Task 12</a>
+            <a href="Tasks/task 13/Wedenesday class.html" target="task_frame">Task 13</a>
+            <a href="Tasks/task 14/timeout.html" target="task_frame">Task 14</a>
+            <a href="Tasks/task 15/bootstrapform.html" target="task_frame">Task 15</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="task_content">
+            <div class="page_header">Project 1: Dynamic Project Gallery</div>
+            <iframe id="task_frame" name="task_frame" src="Tasks/homepage.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="profile-photo">
+            <img src="Ash.jpg" alt="Ashish Kumar">
+        </div>
+        Developer <strong>Ashish Kumar</strong> | Contact:
+        <a href="mailto:akumar4@aum.edu">akumar4@aum.edu</a>
+    </footer>
+
+</body>
+</html>

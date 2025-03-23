@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+  <title>Fill the Student Details Form</title>
+  <style>
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: space-between;
+    }
+    .form-container input {
+      flex: 1;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #000;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 5px;
+    }
+    .button-container button {
+      width: auto;
+      padding: 5px 10px;
+      margin-top: 5px;
+      border: 1px solid #000;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .button-container button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter The Student Details Form</h2>
+  <div class="form-container">
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="course" placeholder="Course">
+    <input type="text" id="year" placeholder="Year">
+    <input type="text" id="sno" placeholder="Student No">
+    <input type="text" id="email" placeholder="Email">
+  </div>
+
+  <div class="button-container">
+    <button id="insertBtn" onclick="insertInfo()">Insert Info</button>
+    <button id="outputBtn" onclick="showDetails()">Show Output</button>
+    <button id="showAllBtn" onclick="showAllDetails()">Show All Info</button>
+  </div>
+  
+  <p id="output"></p>
+  <p id="allOutput"></p>
+
+  <script>
+    let students = [];
+
+    function insertInfo() {
+      const student = {
+        Name: document.getElementById("name").value,
+        course: document.getElementById("course").value,
+        year: document.getElementById("year").value,
+        sno: document.getElementById("sno").value,
+        email: document.getElementById("email").value,
+        description: function () {
+          return `This is ${this.Name}, enrolled in ${this.course}, year ${this.year}, Student No: ${this.sno}, Email: ${this.email}`;
+        }
+      };
+      
+      students.push(student);
+      alert("Info Inserted Successfully");
+      document.getElementById("name").value = "";
+      document.getElementById("course").value = "";
+      document.getElementById("year").value = "";
+      document.getElementById("sno").value = "";
+      document.getElementById("email").value = "";
+    }
+
+    function showDetails() {
+      if (students.length > 0) {
+        document.getElementById("output").innerText = students[students.length - 1].description();
+      } else {
+        document.getElementById("output").innerText = "No student info available.";
+      }
+    }
+
+    function showAllDetails() {
+      if (students.length > 0) {
+        document.getElementById("allOutput").innerText = students.map(student => student.description()).join("\n");
+      } else {
+        document.getElementById("allOutput").innerText = "No student info available.";
+      }
+    }
+  </script>
+
+</body>
+</html>

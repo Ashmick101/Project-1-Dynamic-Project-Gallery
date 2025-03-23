@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Student Constructor Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      background-color: #f5f3ee;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 200px;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+      width: 120px;
+      border: none;
+      cursor: pointer;
+    }
+    .insert {
+      background-color: #c8e6c9;
+    }
+    .clear {
+      background-color: #f5c6c6;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>Students</h1>
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Enter Name" />
+    <input type="text" id="course" placeholder="Enter Course" /><br>
+    <input type="number" id="yearOfEnrollment" placeholder="Enter Year" />
+    <input type="text" id="sNo" placeholder="Enter Student Number" /><br>
+    <input type="email" id="email" placeholder="Enter Email" /><br>
+    <button type="button" class="insert" onclick="createStudent()">Insert Info</button>
+    <button type="button" class="clear" onclick="clearInputs()">Clear Inputs</button><br>
+    <button type="button" class="insert" onclick="showAll()">Show All</button>
+    <button type="button" class="clear" onclick="clearDisplay()">Clear Display</button>
+  </form>
+  <hr />
+  <div id="result"></div>
+  <script>
+    let students = [];
+    
+    function Student(name, course, yearOfEnrollment, sNo, email) {
+      this.name = name;
+      this.course = course;
+      this.yearOfEnrollment = yearOfEnrollment;
+      this.sNo = sNo;
+      this.email = email;
+      this.describe = function() {
+        return `Student: ${this.name}, ${this.course}, ${this.yearOfEnrollment}, #${this.sNo}, ${this.email}`;
+      };
+    }
+    
+    function createStudent() {
+      const name = document.getElementById("name").value;
+      const course = document.getElementById("course").value;
+      const yearOfEnrollment = document.getElementById("yearOfEnrollment").value;
+      const sNo = document.getElementById("sNo").value;
+      const email = document.getElementById("email").value;
+      
+      const newStudent = new Student(name, course, yearOfEnrollment, sNo, email);
+      students.push(newStudent);
+      document.getElementById("result").innerText = `Latest Entry:\n${newStudent.describe()}`;
+      clearInputs();
+    }
+    
+    function clearInputs() {
+      document.getElementById("studentForm").reset();
+    }
+    
+    function clearDisplay() {
+      document.getElementById("result").innerText = "";
+    }
+    
+    function showAll() {
+      if (students.length === 0) {
+        document.getElementById("result").innerText = "No students added yet.";
+        return;
+      }
+      let allStudents = students.map(student => student.describe()).join('\n');
+      document.getElementById("result").innerText = `All Students:\n${allStudents}`;
+    }
+  </script>
+</body>
+</html>

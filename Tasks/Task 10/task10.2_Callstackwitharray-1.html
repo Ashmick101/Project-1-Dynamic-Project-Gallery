@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Stack Implementation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Task Stack Manager</h2>
+        <input type="text" id="taskInput" placeholder="Enter Task Name">
+        <button onclick="addTask()">ADD Task</button>
+        <button onclick="undoTask()">UNDO Task</button>
+        <h3>Current Pipeline:</h3>
+        <textarea id="taskDisplay" readonly></textarea>
+    </div>
+    <script> 
+
+        // Task Stack Implementation
+        let taskStack = [];
+        // Function to add a task
+        function addTask() {
+        let taskInput = document.getElementById("taskInput").value;
+        if (taskInput.trim() !== "") {
+        taskStack.push(taskInput);
+        updateTaskDisplay();
+        document.getElementById("taskInput").value = ""; // Clear input field
+        } else {
+        alert("Please enter a task name!");
+        }
+        }
+        // Function to undo (remove last task)
+        function undoTask() {
+        if (taskStack.length > 0) {
+        taskStack.pop();
+        updateTaskDisplay();
+        } else {
+        alert("No tasks to undo!");
+        }
+        }
+        // Function to update the display
+        function updateTaskDisplay() {
+        document.getElementById("taskDisplay").value = taskStack.join("\n");
+        }
+          </script>
+</body>
+</html>
